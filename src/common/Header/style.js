@@ -4,6 +4,9 @@ import logoPic from '../../statics/logo.png';
 
 export const HeaderWrapper = styled.div`
   position: relative;
+  margin-left: 39.9px;
+  margin-right: 39.9px;
+  width: 1440px;
   height: 56px;
   border-bottom: 1px solid #f0f0f0;
   
@@ -23,11 +26,11 @@ export const Logo = styled.a`
 
 export const Nav = styled.div`
     position: absolute;
-    left: 200px;
+    left: 240px;
     width: 960px;
     height: 100%;
     box-sizing: border-box;
-    magrin: 0 auto;
+    margin: 0 auto;
 
 `;
 
@@ -95,7 +98,7 @@ export const SearchInfo = styled.div`
     width: 240px;
     padding: 0 20px;
     height: 200px;
-    
+    background: #fff;
     box-shadow: 0 0 8px rgba(0,0,0,.2);
 
 `;
