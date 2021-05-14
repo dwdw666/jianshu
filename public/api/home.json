@@ -1,0 +1,36 @@
+{
+    "success": true,
+    "data": {
+        "topicList": [{
+                        "id": 1,
+                        "title": "Top",
+                        "imgurl": "https://opgg-static.akamaized.net/images/lol/champion/Aatrox.png?image=c_scale,q_auto,w_140&v=1619585878"
+                        },{
+                            "id": 2,
+                            "title": "Jungle",
+                            "imgurl": "https://opgg-static.akamaized.net/images/lol/champion/Amumu.png?image=c_scale,q_auto,w_140&v=1619585878"
+        }],
+        "articleList":[{
+                        "id": 1,
+                        "title":"REAL-TIME CHAMPION INFORMATION",
+                        "desc": "sssssssssssssssssss",
+                        "imgurl": "https://opgg-static.akamaized.net/images/lol/champion/Anivia.png?image=c_scale,q_auto,w_140&v=1619585878"
+                        },{
+                            "id": 2,
+                            "title":"REAL-TIME CHAMPION INFORMATION",
+                            "desc": "sssssssssssssssssss",
+                            "imgurl": "https://opgg-static.akamaized.net/images/lol/champion/Anivia.png?image=c_scale,q_auto,w_140&v=1619585878"
+        }],
+        "recommendlist":[{
+                        "id": 1,
+                        "imgUrl": "https://opgg-static.akamaized.net/images/lol/champion/Shen.png?image=c_scale,q_auto,w_140&v=1620787344"
+                        },{
+                            "id": 2,
+                            "imgUrl": "https://opgg-static.akamaized.net/images/lol/champion/Sett.png?image=c_scale,q_auto,w_140&v=1620787344"
+       }]
+
+    }
+
+
+
+}

@@ -8,16 +8,16 @@ import Detail from './pages/detail';
 import Home from './pages/home';
 
 
-class App extends React.Component {
+class App extends React.PureComponent {
   render(){
     return (
       <Provider store={store}>
          <div className="App">
-          <Header />
           <Router>
+            <Header />
             <div>
               <Route path="/"  exact component = {Home}></Route>
-
+              <Route path="/detail" component = {Detail}></Route>
             </div>
           </Router>
          </div>

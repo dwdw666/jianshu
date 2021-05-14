@@ -15,10 +15,11 @@ import { HeaderWrapper,
 from './style';
 import { connect } from 'react-redux'; 
 import * as actionCreators from './store/actionCreatoer';
+import { Link } from 'react-router-dom';
 
 
 
-class Header extends React.Component{
+class Header extends React.PureComponent{
 
         getListArea(){
             const {list, page,focused,mouseIn, handleChangePage, handelMousEnter, handelMousLeave, totalPage} = this.props;
@@ -56,7 +57,9 @@ class Header extends React.Component{
             return(
                 <div>
                     <HeaderWrapper>
-                        <Logo href='/'/>
+                        <Link to='/'>
+                            <Logo />
+                        </Link>
                         <Nav >
                             <NavItem className='left active' >Home</NavItem>
                             <NavItem className='left'>LoadApp</NavItem>
@@ -90,7 +93,6 @@ class Header extends React.Component{
 
 
 const mapStateToProps = (state)=>{
-   
     return{
        focused: state.get('header').get('focused'),//this state -> paremettre de reducer initialize
        list: state.get('header').get('list'),
@@ -116,7 +118,7 @@ const mapDispatchToProps = (dispatch)=>{
             dispatch(actionCreators.mouseLeave());
         },
         handleChangePage(page,totalPage){
-            if( page<totalPage){
+            if( page < totalPage){
                 dispatch(actionCreators.changePage(page+1));
             }else{
                 dispatch(actionCreators.changePage(1)); //return to page 1

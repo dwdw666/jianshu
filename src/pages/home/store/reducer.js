@@ -1,35 +1,33 @@
 import { fromJS } from 'immutable';
-
+import * as constants from './constants';
 //use imuutable to make state immutable use function: set() to get a new state  
 const defaultState = fromJS({
-    topicList: [{
-        id: 1,
-        title: "Top",
-        imgurl: "https://opgg-static.akamaized.net/images/lol/champion/Aatrox.png?image=c_scale,q_auto,w_140&v=1619585878"
-    },{
-        id: 2,
-        title: "Jungle",
-        imgurl: "https://opgg-static.akamaized.net/images/lol/champion/Amumu.png?image=c_scale,q_auto,w_140&v=1619585878"
-    }],
-    articleList:[{
-        id: 1,
-        title:'REAL-TIME CHAMPION INFORMATION',
-        desc: 'sssssssssssssssssss',
-        imgurl: "https://opgg-static.akamaized.net/images/lol/champion/Anivia.png?image=c_scale,q_auto,w_140&v=1619585878"
-    },{
-        id: 1,
-        title:'REAL-TIME CHAMPION INFORMATION',
-        desc: 'sssssssssssssssssss',
-        imgurl: "https://opgg-static.akamaized.net/images/lol/champion/Anivia.png?image=c_scale,q_auto,w_140&v=1619585878"
-    }]
+    topicList:[],
+    articleList:[],
+    recommendlist:[],
+    articlePage: 1,
+    showScroll: false
 });
 
-export default function reducer(state=defaultState, action ){
+const changeHomeData = (state,action) => {
+    return state.merge({
+        'topicList': fromJS(action.topicList),
+        'articleList':  fromJS(action.articleList),
+        'recommendlist':  fromJS(action.recommendlist)
+    })
+}
+
+export default function reducer(state=defaultState, action){
     // immutable's set function 
     switch (action.type) {
-        
+        case constants.CHANG_HOME_DATA:
+            return changeHomeData(state,action);
+        case constants.ADD_ARTICLE_LIST:
+            return state.set('articleList', state.get('articleList').concat(action.list)); 
+        case constants.TOGGLE_SCROLL_SHOW:
+            return state.set('showScroll',action.show);
         default: 
-        return state;
+            return state;
             
     }
     
