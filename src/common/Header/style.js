@@ -3,6 +3,7 @@ import logoPic from '../../statics/logo.png';
 
 
 export const HeaderWrapper = styled.div`
+  z-index: 1;
   position: relative;
   margin-left: 39.9px;
   margin-right: 39.9px;
@@ -39,6 +40,7 @@ export const NavItem = styled.div`
     padding : 0 15px;
     font-size: 17px;
     color: #333;
+    cursor: pointer;
     &.left {
         float: left;
         color: #ea6f5a;

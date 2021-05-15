@@ -53,7 +53,7 @@ class Header extends React.PureComponent{
         
         }
         render(){
-            const {list,focused,hanldeInputFoucs,hanldeInputBlur} = this.props;
+            const {list, focused, hanldeInputFoucs, hanldeInputBlur, logIn} = this.props;
             return(
                 <div>
                     <HeaderWrapper>
@@ -63,7 +63,11 @@ class Header extends React.PureComponent{
                         <Nav >
                             <NavItem className='left active' >Home</NavItem>
                             <NavItem className='left'>LoadApp</NavItem>
-                            <NavItem className='right'>Login</NavItem>
+                            {
+                                logIn ? 
+                                    <NavItem className='right'>exit</NavItem> : 
+                                    <Link to='./logIn'><NavItem className='right'>login</NavItem></Link>
+                            }
                             <NavItem className='right'>Aa</NavItem>
                             <SearchWrapper>
                                 <CSSTransition timeout={200} in={focused} classNames='slide'>
@@ -99,6 +103,7 @@ const mapStateToProps = (state)=>{
        page: state.get('header').get('page'),
        mouseIn: state.get('header').get('mouseIn'),
        totalPage: state.get('header').get('totalPage'),
+       logIn: state.getIn(['logIn','logIn'])
     }
 }
 // use data in store
