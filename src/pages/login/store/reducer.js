@@ -8,6 +8,10 @@ const defaultState = fromJS({
 export default function reducer(state=defaultState, action){
     // immutable's set function 
     switch (action.type) {
+        case constants.CHANGE_LOGIN:
+            return state.set('logIn', action.value);
+        case constants.CHANGE_LOGOUT:
+            return state.set('logIn',action.value);
         default: 
             return state;
             

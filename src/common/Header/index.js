@@ -16,13 +16,13 @@ from './style';
 import { connect } from 'react-redux'; 
 import * as actionCreators from './store/actionCreatoer';
 import { Link } from 'react-router-dom';
-
+import { actionCreators as logInactionCreators } from '../../pages/login/store';
 
 
 class Header extends React.PureComponent{
 
         getListArea(){
-            const {list, page,focused,mouseIn, handleChangePage, handelMousEnter, handelMousLeave, totalPage} = this.props;
+            const {list, page,focused,mouseIn, handleChangePage, handelMousEnter, handelMousLeave, totalPage, logOut} = this.props;
             const pagelist = [];
             const newlist = list.toJS();
             
@@ -53,7 +53,7 @@ class Header extends React.PureComponent{
         
         }
         render(){
-            const {list, focused, hanldeInputFoucs, hanldeInputBlur, logIn} = this.props;
+            const {list, focused, hanldeInputFoucs, hanldeInputBlur, logIn, logOut} = this.props;
             return(
                 <div>
                     <HeaderWrapper>
@@ -65,7 +65,7 @@ class Header extends React.PureComponent{
                             <NavItem className='left'>LoadApp</NavItem>
                             {
                                 logIn ? 
-                                    <NavItem className='right'>exit</NavItem> : 
+                                    <NavItem className='right' onClick={logOut} >exit</NavItem> : 
                                     <Link to='./logIn'><NavItem className='right'>login</NavItem></Link>
                             }
                             <NavItem className='right'>Aa</NavItem>
@@ -129,6 +129,9 @@ const mapDispatchToProps = (dispatch)=>{
                 dispatch(actionCreators.changePage(1)); //return to page 1
             }
             
+        },
+        logOut(){
+            dispatch(logInactionCreators.logOut());
         }
     }   
    
